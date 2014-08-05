@@ -2,6 +2,7 @@ OjbCComponentSystem
 ===================
 
 Component System Prototype using Objective-C Message Forwarding.
+-----------------------------------------------------------------
 
 This is the code to demonstrate building a game using Component System. 
 Heavily using the message forwarding feature of Objective-C language.
