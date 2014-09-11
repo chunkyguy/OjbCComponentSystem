@@ -18,38 +18,14 @@
 
 @implementation RenderComponent
 
-- (void)setNormalMatrix:(NSString *)nMat;
+- (void)setNormalMatrix:(NSValue *)nMat;
 {
-    // remove uneccessary characters from string..
-    nMat = [nMat stringByReplacingOccurrencesOfString:@"{" withString:@""];
-    nMat = [nMat stringByReplacingOccurrencesOfString:@"}" withString:@""];
-    nMat = [nMat stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
-    // build an NSArray with string components and convert them to an array of floats
-    NSArray* array = [nMat componentsSeparatedByString:@","];
-    float data[9];
-    for(int i = 0; i < 9; ++i){
-        data[i] = [[array objectAtIndex:i] floatValue];
-    }
-    
-    _normalMatrix = GLKMatrix3MakeWithArray(data);
+    [nMat getValue:&_normalMatrix];
 }
 
-- (void)setModelViewProjectionMatrix:(NSString *)mvpMat;
+- (void)setModelViewProjectionMatrix:(NSValue *)mvpMat;
 {
-    // remove uneccessary characters from string..
-    mvpMat = [mvpMat stringByReplacingOccurrencesOfString:@"{" withString:@""];
-    mvpMat = [mvpMat stringByReplacingOccurrencesOfString:@"}" withString:@""];
-    mvpMat = [mvpMat stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
-    // build an NSArray with string components and convert them to an array of floats
-    NSArray* array = [mvpMat componentsSeparatedByString:@","];
-    float data[16];
-    for(int i = 0; i < 16; ++i){
-        data[i] = [[array objectAtIndex:i] floatValue];
-    }
-    
-    _modelViewProjectionMatrix = GLKMatrix4MakeWithArray(data);
+    [mvpMat getValue:&_modelViewProjectionMatrix];
 }
 
 - (void)render;

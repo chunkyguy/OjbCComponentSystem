@@ -21,8 +21,8 @@ GLint uniforms[NUM_UNIFORMS];
 
 @interface RenderComponent : NSObject
 
-- (void)setNormalMatrix:(NSString *)nMat;
-- (void)setModelViewProjectionMatrix:(NSString *)mvpMat;
+- (void)setNormalMatrix:(NSValue *)nMat;
+- (void)setModelViewProjectionMatrix:(NSValue *)mvpMat;
 
 - (void)render;
 

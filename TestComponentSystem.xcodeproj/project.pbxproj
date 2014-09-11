@@ -150,9 +150,9 @@
 				19C7B6891990DD3000A76C84 /* GameObject.h */,
 				19C7B68A1990DD3000A76C84 /* GameObject.m */,
 				19C7B68C1990EB0500A76C84 /* RenderComponent.h */,
+				19C7B68D1990EB0500A76C84 /* RenderComponent.m */,
 				19C7B68F1990F43900A76C84 /* PhysicsComponent.h */,
 				19C7B6901990F43900A76C84 /* PhysicsComponent.m */,
-				19C7B68D1990EB0500A76C84 /* RenderComponent.m */,
 			);
 			path = TestComponentSystem;
 			sourceTree = "<group>";
@@ -499,6 +499,7 @@
 				19C7B6821990DC2A00A76C84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		19C7B6831990DC2A00A76C84 /* Build configuration list for PBXNativeTarget "TestComponentSystemTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +508,7 @@
 				19C7B6851990DC2A00A76C84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

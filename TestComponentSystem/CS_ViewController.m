@@ -218,17 +218,19 @@ GLfloat gCubeVertexData[216] =
     modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, _rotation, 1.0f, 1.0f, 1.0f);
     modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
 
-    [ninja setNormalMatrix: NSStringFromGLKMatrix3(
-     GLKMatrix3InvertAndTranspose(GLKMatrix4GetMatrix3(modelViewMatrix), NULL))];
-    [ninja setModelViewProjectionMatrix: NSStringFromGLKMatrix4(GLKMatrix4Multiply(projectionMatrix, modelViewMatrix))];
+    GLKMatrix3 nMat = GLKMatrix3InvertAndTranspose(GLKMatrix4GetMatrix3(modelViewMatrix), NULL);
+    GLKMatrix4 mvpMat = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
+    [ninja setNormalMatrix:[NSValue value:&nMat withObjCType:@encode(GLKMatrix3)]];
+    [ninja setModelViewProjectionMatrix: [NSValue value:&mvpMat withObjCType:@encode(GLKMatrix4)]];
     
     modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, 1.5f);
     modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, _rotation, 1.0f, 1.0f, 1.0f);
     modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
 
-    [background setNormalMatrix: NSStringFromGLKMatrix3(
-                                                   GLKMatrix3InvertAndTranspose(GLKMatrix4GetMatrix3(modelViewMatrix), NULL))];
-    [background setModelViewProjectionMatrix: NSStringFromGLKMatrix4(GLKMatrix4Multiply(projectionMatrix, modelViewMatrix))];
+     nMat = GLKMatrix3InvertAndTranspose(GLKMatrix4GetMatrix3(modelViewMatrix), NULL);
+    mvpMat = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
+     [background setNormalMatrix:[NSValue value:&nMat withObjCType:@encode(GLKMatrix3)]];
+    [background setModelViewProjectionMatrix: [NSValue value:&mvpMat withObjCType:@encode(GLKMatrix4)]];
 
     [ninja update:dt];
     [bonus update:dt];
